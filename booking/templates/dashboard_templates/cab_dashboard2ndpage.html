@@ -1,0 +1,152 @@
+{% extends 'dashboard_templates/admin.html' %}
+{% block main_content %}
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+          */
+             body.dark td a{
+                background-color: black;
+                color: white;
+              }
+            body.dark {
+                background-color: black;
+                  color: #ffffff;
+              }
+      
+              body.dark table {
+                background-color: black;
+                  color: #ffffff;
+              }
+      
+              body.dark th {
+                background-color: black;
+                  color: #ffffff;
+              }
+      
+              body.dark td {
+                background-color: black;
+                  color: #cccccc;
+              }  
+              .tt {
+                width: 70%;
+                background: #fff;
+                border-radius: 10px;
+                margin: 20px 0px 0px 300px  ;
+                border: 1px solid #ddd;
+              
+              }
+      
+              th, td {
+                  padding: 15px;
+                  text-align: center;
+                  border: 1px solid #ddd;
+              }
+      
+              th {
+                background-color: rgb(134, 127, 127);
+                color: #fff;
+                font-weight: bold;
+                text-align: center !important;
+              }
+              td {
+                  background-color: #f9f9f9;
+                  color: #333;
+              }
+      
+              tr:last-child td {
+                  border-bottom: none;
+              }      
+                  
+            .sr{
+                padding-left: 300px;
+                margin: 20px; 
+                font-size: 32px; 
+                color: black; 
+                font-weight: bold;
+            }
+            body.dark .sr{
+                color: white;
+            }
+                 
+            .hk {
+                
+                border-radius: 5px;
+                background-color: #0e8d0e9d; /* Default background color */
+                color: #fff;
+                display: flex;
+                font-weight: bold;
+                padding: 10px 15px;
+                margin-left: 1000px;
+                border: 2px solid #67b768;
+                cursor: pointer;
+  
+            }
+            body.dark .hk {
+                background-color: black;
+                border: 1px solid #fff;
+                color: #fff;
+            }
+            .hk:hover{
+                color: #0e8d0e9d;
+                text-decoration: none;
+                border: 2px solid #0e8d0e9d;
+                background-color: white;
+              
+            }
+                body.dark td {
+                    color: #fff;
+                }         
+                </style>
+            </head>
+            <body class="jk"><br>
+
+                <h2 class="sr">Cabs offers 2nd pages:</h2><br> <br>
+                <div class="d-flex ">
+                    <a id="offer-popup" class="hk">OFFER-INSERT-FORM</a>
+                </div>
+            
+        
+                <table  border="1" class="tt">
+                    <tr>
+                        <th>ID</th>
+                        <th>OFFER</th>
+                        <!-- <th>url_insert</th> -->
+                        <th>offer_data</th>
+                        <th>url_update</th>
+                        <th>url_insert</th>
+                        
+                    </tr>
+                    {% for i in up %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.offer}}</td>
+                        <!-- <td><a href="{{i.url_insert}}">{{i.url_insert}}</a></td> -->
+                        <td>{{i.offer_data}}</td>
+                        <td><a href="{{i.url_update}}">{{i.url_update}}</a></td>
+                        <td><a href="{{i.url_insert}}">{{i.url_insert}}</a></td>  
+                       
+                    </tr>
+                    {% endfor %}
+                </table><br>
+                {% include 'dashboard_templates/cabdb_offer2ndpage.html' %}
+
+                <script>
+                    function openPopup() {
+                        document.getElementById('overlay').style.display = 'block';
+                        document.getElementById('offerPopup').style.display = 'block';
+                    }
+            
+                    function CabClosePopup() {
+                        document.getElementById('overlay').style.display = 'none';
+                        document.getElementById('offerPopup').style.display = 'none';
+                    }
+            
+                    document.getElementById('offer-popup').addEventListener('click', openPopup);
+                </script>
+            
+        </body>
+    </html>         
+
+{% endblock main_content %}
